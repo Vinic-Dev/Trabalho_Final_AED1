@@ -7,11 +7,11 @@ void mostrar_menu()
         char op;
 
         printf("-----------------------------------------------\n");
-        printf("|              GESTAO HOSPITALAR              |\n");
+        printf("|              GESTÃO HOSPITALAR              |\n");
         printf("-----------------------------------------------\n");
-        printf("| 1. Opcao 1                                  |\n");
-        printf("| 2. Opcao 2                                  |\n");
-        printf("| 3. Opcao 3                                  |\n");
+        printf("| 1. Opcão 1                                  |\n");
+        printf("| 2. Opcão 2                                  |\n");
+        printf("| 3. Opcão 3                                  |\n");
         printf("| 0. Sair                                     |\n");
         printf("-----------------------------------------------\n");
         printf("Digite uma opcão: ");
