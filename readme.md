@@ -1,2 +1,2 @@
 Teste para Branch.
-Projeto final AED1
+Projeto final da disciplina Algoritmos e Estrutura de Dados 1.
