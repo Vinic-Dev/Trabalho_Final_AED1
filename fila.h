@@ -5,30 +5,38 @@
 
 typedef struct {
 
-    int ID; //um identificador unico para cada paciente
+    char nome[20];
     int idade;
-    char nome[50];
-    char historico_paciente[200]; // o historico servirá para descrever a situação do paciente brevmente
+    char bloco;
+    int casa;
+    int status; //verificar status para 0 ou 1
 
-} Paciente;
+} Morador;
 
 typedef struct {
 
-    Paciente pacientes[MAX];
-    int inicio; //indice primeiro da fila
-    int fim; //indice ultimo da fila
-    int total; // quantidade de pacientes
+    Morador morador[MAX];
+    int inicio;
+    int fim;
+    int qntd;
 
 } Fila;
 
-void criarFila( Fila *fila); //inicializa a fila com 0
-int filaVazia ( Fila *fila); // verificar se a fila ta vazia, retorna 1 pra vazia e 0 para nao vazia
-int filaCheia ( Fila *f); // verificar a fila de acordo com o limite, retorna 1 se cheia e 0 se tem espaço ainda
-void inserirPaciente (Fila *fila, Paciente paciente); // pegar um paciente existente e colocá-lo no final da fila
-Paciente removerPaciente (Fila *fila); //remover o paciente do inicio da fila
-int tamFila(Fila *fila); //verificar quantos pacientes estao na fila atualmente
+//Funções voltadas ao morador
 
-Paciente criarPaciente(); // aqui vamos inserir as informacoes do paciente, montando uma struct Paciente dentro da propria função
-void exibirPaciente (Paciente paciente); //vai receber a struct e exibir
+Morador cad_morador(); //verificar o que precisa ser passado
+void print_morador(Morador morador); //para mostrar a fila
+
+//funçoes essenciais de fila
+
+void inicializarFila( Fila *fila);
+int filaVazia( Fila *fila); // verificar nos casos de desenfileirar
+int filaCheia(Fila *fila); //para desenfileirar
+int enfileirar(Fila *fila, Morador morador); //no caso de colocar os moradores em fila, int para retornar 0 ou 1
+int desenfileirar(Fila *fila, Morador *morador); //morador por parametroooo
+void mostrarFila(Fila *fila); //apenas exibir a fila de moradores
+
+//funçao para verificar a casa dos moradores
+
 
 #endif
