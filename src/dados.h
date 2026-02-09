@@ -10,5 +10,4 @@
  */
 void gerar_moradores(int quantidade, Morador *moradores);
 void listar_moradores_aleatorios(int quantidade);
-void quantos_nomes();
 #endif
