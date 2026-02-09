@@ -1,6 +1,7 @@
 #ifndef FILA_H
 #define FILA_H
 #define MAX 25
+#include "morador.h"
 //nao necessariamente precisa ser 25, verificar isso depois
 
 typedef struct Node{

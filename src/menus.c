@@ -1,14 +1,33 @@
-#include "menu.h"
+#include "menus.h"
 #include <stdio.h>
 #define true 1
 #include "morador.h"
 #include "fila.h"
 
-void interessados_em_comprar();
-void cadastro_de_moradores();
-void mudancas();
-void pesquisar_informacoes();
-void mapa_do_comdominio();
+void interessados_em_comprar() 
+{
+    printf("\nquantos nomes você quer gerar? ");
+    int qtd;
+    scanf("%d", &qtd);
+    listar_moradores_aleatorios(qtd);
+}
+void cadastro_de_moradores()
+{
+    printf("\nCadastro de moradores");
+}
+void mudancas()
+{
+    printf("\nMudanças");
+}
+void pesquisar_informacoes()
+{
+    printf("\nPesquisar");
+}
+void mapa_do_comdominio()
+{
+    printf("\nMapa do Condominio");
+}
+
 void menu_principal()
 {
     while (true) 
@@ -29,11 +48,11 @@ void menu_principal()
         
         scanf("%d", &op);
         if (op == 0) break;
-        if (op == 1) interessados_em_comprar;
-        if (op == 2) cadastro_de_moradores;
-        if (op == 3) mudancas;
-        if (op == 4) mapa_do_comdominio;
-        if (op == 5) pesquisar_informacoes;
+        if (op == 1) interessados_em_comprar();
+        if (op == 2) cadastro_de_moradores();
+        if (op == 3) mudancas();
+        if (op == 4) mapa_do_comdominio();
+        if (op == 5) pesquisar_informacoes();
         
     }
 }
