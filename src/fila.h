@@ -1,17 +1,7 @@
 #ifndef FILA_H
 #define FILA_H
-#define MAX 25
-//nao necessariamente precisa ser 25, verificar isso depois
-
-typedef struct {
-
-    char nome[20];
-    int idade;
-    char bloco;
-    int casa;
-    int status; //verificar status para 0 ou 1
-
-} Morador;
+#define MAX 25 //nao necessariamente precisa ser 25, verificar isso depois
+#include "morador.h"
 
 typedef struct {
 
@@ -21,11 +11,6 @@ typedef struct {
     int qntd;
 
 } Fila;
-
-//Funções voltadas ao morador
-
-Morador cad_morador(); //verificar o que precisa ser passado
-void print_morador(Morador morador); //para mostrar a fila
 
 //funçoes essenciais de fila
 

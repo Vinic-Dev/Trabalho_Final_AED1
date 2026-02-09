@@ -1,15 +1,14 @@
 CC = gcc
-CFLAGS = -Wall # -O2: otimização de nível 2 -Wextra: habilita warnings extras -Wall: habilita todos os warnings
+CFLAGS = -g -I./src
 TARGET = p1
-SOURCES = main.c
+SRC = $(wildcard src/*.c)
+all: $(TARGET)
 
-$(TARGET): $(SOURCES)
-	$(CC) $(CFLAGS) -o $(TARGET) $(SOURCES)
-
-run: $(TARGET)
-	@./$(TARGET)
+$(TARGET): $(SRC)
+	$(CC) $(CFLAGS) -o $@ $^
 
 clean:
-	rm -f $(OBJECTS) $(TARGET) $(TARGET).exe
+	rm -f $(TARGET)
 
-.PHONY: run clean
+run: $(TARGET)
+	./$(TARGET)
