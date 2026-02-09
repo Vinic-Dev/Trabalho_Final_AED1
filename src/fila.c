@@ -22,7 +22,7 @@ Morador cadMorador(Fila *fila) {
    scanf(" %[^\n]", morador.nome);
    printf("Digite a idade do morador: ");
    scanf("%d", &morador.idade);
-   morador.status = 1; //1 pois ainda esta se mudando
+   morador.mudanca = 1; //1 pois ainda esta se mudando
 
    do{
             do {
@@ -137,7 +137,7 @@ int desenfileirar(Fila *fila, Morador *moradorRemovido){
 
     Node *temp = fila->inicio; //passar inicio para um no auxiliar
     *moradorRemovido = temp->morador; //nó temporario recebe as infos do morador a ser removido
-    moradorRemovido->status = 0; //status do morador removido passa a ser 0 por conta da mudança concluida
+    moradorRemovido->mudanca = 0; //status do morador removido passa a ser 0 por conta da mudança concluida
 
     fila->inicio = fila->inicio->prox; //inicio passar a ser o elemento anterior do atual inicio
 

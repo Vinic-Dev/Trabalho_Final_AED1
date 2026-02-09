@@ -7,7 +7,7 @@ typedef struct {
     int idade;
     char bloco;
     int casa;
-    int status; //verificar status para 0 ou 1
+    int mudanca; //1 se nao mudou, 0 se mudou
 
 } Morador;
 

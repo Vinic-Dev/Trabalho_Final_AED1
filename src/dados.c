@@ -28,21 +28,56 @@ const char *sobrenomes[] = {
     "Prado", "Toledo", "Carvalho", "Drummond", "Paiva", "Vasconcelos", "Beltrão", "Bittencourt", "Cordeiro", "Frota",
     "Lins", "Magalhães", "Saldanha", "Trindade", "Falcão", "Porto", "Guedes", "Serra", "Xavier", "Zanetti"
 };
-void listar_moradores_aleatorios(int quantidade){
+
+void gerar_nome(char *nome){
     srand(time(NULL));
-    for (int i = 0; i < quantidade; i++) {
-            int r = rand() % 101; // 0 a 100
-            int s = rand() % 91;    // 0 a 90
-            char nome[50];
-            char sobrenome[50];
-            strcpy(nome, nomes[r]);
-            if (r > 90) r = r - 10;
-            strcpy(sobrenome, sobrenomes[r]);
-            strcat(nome, " ");
-            strcat(nome, sobrenome);
-            strcpy(sobrenome, sobrenomes[s]);
-            strcat(nome, " ");
-            strcat(nome, sobrenome);
-            printf("nome: %s\n", nome);
-        }
+    int r = rand() % 98; // 0 a 97
+    int s = rand() % 90;    // 0 a 89
+    char sobrenome[50];
+    
+    if(nomes[r] != NULL) {
+        strcpy(nome, nomes[r]);
+    } else { 
+        r -= 10;
+        strcpy(nome, nomes[r]);
+    }
+    if (r > 90) {
+        r = r - 10;
+    }
+    if (sobrenomes[r]!= NULL) {
+        strcpy(sobrenome, sobrenomes[r]);
+    } else { 
+        r -= 10; 
+        strcpy(sobrenome, sobrenomes[r]);
+    }
+
+    strcat(nome, " ");
+    strcat(nome, sobrenome);
+    strcpy(sobrenome, sobrenomes[s]);
+    strcat(nome, " ");
+    strcat(nome, sobrenome);
+}
+
+double gerar_renda(){
+    srand(time(NULL));
+    int r = rand() % 1001; // 0 a 1000
+    int s = rand() % 91;    // 0 a 90
+    double renda = r * s;
+    return renda;
+}
+
+int gerar_idade(){
+    srand(time(NULL));
+    int r = rand() % 100;
+    if(r < 18) r = 18;
+    return r;
+}
+
+void gerar_interessado(Interessado *interessado, int id){
+    char nome[50];
+    gerar_nome(nome);
+    interessado->id = id;
+    strcpy(interessado->nome, nome); 
+    interessado->idade = gerar_idade();
+    interessado->renda = gerar_renda();
 }

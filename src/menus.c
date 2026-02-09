@@ -3,28 +3,33 @@
 #define true 1
 #include "morador.h"
 #include "fila.h"
+#include "dados.h"
+#define INTERESSADOS 10
 
-void interessados_em_comprar() 
-{
-    printf("\nquantos nomes você quer gerar? ");
-    int qtd;
-    scanf("%d", &qtd);
-    listar_moradores_aleatorios(qtd);
+ 
+void menu_interessados() {
+    
+    Interessado interessados[INTERESSADOS];
+
+    for(int i = 0; i < INTERESSADOS; i++){
+        gerar_interessado(&interessados[i], i);
+        printf("\nID: %d", interessados[i].id);
+        printf("\nNome: %s", interessados[i].nome);
+        printf("\nIdade: %d", interessados[i].idade);
+        printf("\nRenda: %.2lf", interessados[i].renda);
+    }
+    
 }
-void cadastro_de_moradores()
-{
+void cadastro_de_moradores(){
     printf("\nCadastro de moradores");
 }
-void mudancas()
-{
+void mudancas(){
     printf("\nMudanças");
 }
-void pesquisar_informacoes()
-{
+void pesquisar_informacoes(){
     printf("\nPesquisar");
 }
-void mapa_do_comdominio()
-{
+void mapa_do_comdominio(){
     printf("\nMapa do Condominio");
 }
 
@@ -48,7 +53,7 @@ void menu_principal()
         
         scanf("%d", &op);
         if (op == 0) break;
-        if (op == 1) interessados_em_comprar();
+        if (op == 1) menu_interessados();
         if (op == 2) cadastro_de_moradores();
         if (op == 3) mudancas();
         if (op == 4) mapa_do_comdominio();

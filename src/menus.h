@@ -5,4 +5,6 @@ void menu_principal();
 
 void menu_morador();
 
+void menu_interessados();
+
 #endif
