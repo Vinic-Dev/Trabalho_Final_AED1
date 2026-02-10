@@ -2,7 +2,6 @@
 #include <stdio.h>
 #define true 1
 #include "morador.h"
-#include "fila.h"
 #include "dados.h"
 #define INTERESSADOS 10
 
