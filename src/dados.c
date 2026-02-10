@@ -14,7 +14,7 @@ const char *nomes[] = {
     "Larissa", "Mariana", "Natália", "Olivia", "Patricia", "Rafaela", "Sabrina", "Tatiana", "Vanessa", "Yasmin",
     "Aline", "Bianca", "Cristiane", "Débora", "Elaine", "Flávia", "Giovana", "Heloisa", "Irene", "Jéssica",
     "Karina", "Luana", "Mirela", "Nicole", "Priscila", "Renata", "Silvana", "Teresa", "Ursula", "Vitória",
-    "Ximena", "Zilda", "Arthur", "Bernardo", "Davi", "Enzo", "Heitor", "Miguel", "Noah", "Samuel"
+    "Cleunice", "Zilda", "Arthur", "Bernardo", "Davi", "Enzo", "Heitor", "Miguel", "Noah", "Samuel"
 };
 
 const char *sobrenomes[] = {
@@ -30,7 +30,6 @@ const char *sobrenomes[] = {
 };
 
 void gerar_nome(char *nome){
-    srand(time(NULL));
     int r = rand() % 98; // 0 a 97
     int s = rand() % 90;    // 0 a 89
     char sobrenome[50];
@@ -59,7 +58,6 @@ void gerar_nome(char *nome){
 }
 
 double gerar_renda(){
-    srand(time(NULL));
     int r = rand() % 1001; // 0 a 1000
     int s = rand() % 91;    // 0 a 90
     double renda = r * s;
@@ -67,7 +65,6 @@ double gerar_renda(){
 }
 
 int gerar_idade(){
-    srand(time(NULL));
     int r = rand() % 100;
     if(r < 18) r = 18;
     return r;

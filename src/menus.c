@@ -12,13 +12,21 @@ void menu_interessados() {
     Interessado interessados[INTERESSADOS];
 
     for(int i = 0; i < INTERESSADOS; i++){
-        gerar_interessado(&interessados[i], i);
+        gerar_interessado(&interessados[i], i+1);
+    }
+    for(int i = 0; i< INTERESSADOS; i++){
         printf("\nID: %d", interessados[i].id);
         printf("\nNome: %s", interessados[i].nome);
         printf("\nIdade: %d", interessados[i].idade);
-        printf("\nRenda: %.2lf", interessados[i].renda);
+        printf("\nRenda: R$%.2lf", interessados[i].renda);
+        printf("\n");
     }
-    
+    printf("\n");
+    char resposta;
+    do {
+        printf("\nDeseja sair do Menu de Interessados? s/n ");
+        scanf(" %c", &resposta);
+    } while(resposta != 's');
 }
 void cadastro_de_moradores(){
     printf("\nCadastro de moradores");

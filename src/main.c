@@ -1,10 +1,13 @@
 #include <stdio.h>
+#include <time.h>
+#include <stdlib.h>
 #include "menus.h"
 #include "fila.h"
 #include "dados.h"
 
 
 int main() {   
+    srand(time(NULL));
     Fila fila;
     inicializarFila(&fila);
     Fila2 filaMudados;
