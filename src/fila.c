@@ -21,41 +21,41 @@ Morador cadMorador(Fila *fila) {
    scanf(" %[^\n]", morador.nome);
    printf("Digite a idade do morador: ");
    scanf("%d", &morador.idade);
-   morador.mudanca = 1; //1 pois ainda esta se mudando
+   morador.fez_mudanca = 1; //1 pois ainda esta se mudando
 
    do{
             do {
 
                 printf("Digite o bloco do morador: ");
-                scanf(" %c", &morador.bloco);
+                scanf(" %c", &morador.casa.bloco);
 
-                if (morador.bloco != 'A' && morador.bloco != 'B' &&
-                morador.bloco != 'C' && morador.bloco != 'D' &&
-                morador.bloco != 'E') {
+                if (morador.casa.bloco != 'A' && morador.casa.bloco != 'B' &&
+                morador.casa.bloco != 'C' && morador.casa.bloco != 'D' &&
+                morador.casa.bloco != 'E') {
                 printf("Bloco inexistente. Tente novamente.\n");
                 }
 
-            }while ( morador.bloco != 'A' && morador.bloco != 'B' &&
-            morador.bloco != 'C' && morador.bloco != 'D' &&
-            morador.bloco != 'E');
+            }while ( morador.casa.bloco != 'A' && morador.casa.bloco != 'B' &&
+            morador.casa.bloco != 'C' && morador.casa.bloco != 'D' &&
+            morador.casa.bloco != 'E');
 
             do {
 
                 printf("Digite o numero da casa: ");
-                scanf("%d", &morador.casa);
+                scanf("%d", &morador.casa.numero);
 
-                if (morador.casa > 5 || morador.casa < 1) {
+                if (morador.casa.numero > 5 || morador.casa.numero < 1) {
                 printf("Casa inexistente. Tente novamente.\n");
                 }
 
-                if ( verificarCasa(fila, morador.bloco, morador.casa) == 1) {
+                if ( verificarCasa(fila, morador.casa.bloco, morador.casa.numero) == 1) {
                 printf("Casa ja ocupada nesse bloco! Tente novamente.\n");
                 }
         
-            } while (morador.casa >5 || morador.casa < 1);
+            } while (morador.casa.numero >5 || morador.casa.numero < 1);
 
-    } while (verificarCasa(fila, morador.bloco, morador.casa) == 1 
-    || morador.casa > 5 || morador.casa < 1);
+    } while (verificarCasa(fila, morador.casa.bloco, morador.casa.numero) == 1 
+    || morador.casa.numero > 5 || morador.casa.numero < 1);
 
    return morador;
 }
@@ -94,8 +94,8 @@ int verificarCasa(Fila *fila, char bloco, int casa){
     Node *atual = fila->inicio;
 
     for ( int i = 0; i < (fila->qntd); i++){
-        if (atual->morador.bloco == bloco &&
-        atual->morador.casa == casa)
+        if (atual->morador.casa.bloco == bloco &&
+        atual->morador.casa.numero == casa)
         return 1;// casa e bloco ja ocupados
 
         atual= atual->prox;
@@ -120,8 +120,8 @@ void exibirFila(Fila *fila){
         printf("-------------------------\n");
         printf("Nome: %s\n", atual->morador.nome);
         printf("Idade: %d\n", atual->morador.idade);
-        printf("Bloco: %c\n", atual->morador.bloco);
-        printf("Casa: %d\n", atual->morador.casa);
+        printf("Bloco: %c\n", atual->morador.casa.bloco);
+        printf("Casa: %d\n", atual->morador.casa.numero);
         atual = atual->prox; //avançar para o próximo nó
 
     }
@@ -136,7 +136,7 @@ int desenfileirar(Fila *fila, Morador *moradorRemovido){
 
     Node *temp = fila->inicio; //passar inicio para um no auxiliar
     *moradorRemovido = temp->morador; //nó temporario recebe as infos do morador a ser removido
-    moradorRemovido->mudanca = 0; //status do morador removido passa a ser 0 por conta da mudança concluida
+    moradorRemovido->fez_mudanca = 0; //status do morador removido passa a ser 0 por conta da mudança concluida
 
     fila->inicio = fila->inicio->prox; //inicio passar a ser o elemento anterior do atual inicio
 
@@ -151,8 +151,8 @@ void printMorador(Morador morador) { // função para printar um morador especif
     printf("--------------------------\n");
     printf("Nome: %s\n", morador.nome);
     printf("Idade: %d\n", morador.idade);
-    printf("Bloco: %c\n", morador.bloco);
-    printf("Casa: %d\n", morador.casa);
+    printf("Bloco: %c\n", morador.casa.bloco);
+    printf("Casa: %d\n", morador.casa.numero);
     printf("--------------------------\n");
 
 }
@@ -197,8 +197,8 @@ void exibirMoradoresMudados(Fila2 *filaMudados) {
         printf("-------------------------\n");
         printf("Nome: %s\n", atual->morador.nome);
         printf("Idade: %d\n", atual->morador.idade);
-        printf("Bloco: %c\n", atual->morador.bloco);
-        printf("Casa: %d\n", atual->morador.casa);
+        printf("Bloco: %c\n", atual->morador.casa.bloco);
+        printf("Casa: %d\n", atual->morador.casa.numero);
         atual = atual->prox; //avançar para o próximo nó
 
     }

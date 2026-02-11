@@ -2,10 +2,8 @@
 #define DADOS_H
 #include "tipos_de_dados.h"
 
-// Dados do morador
+// recebe um tipo Interessado e o gera
 void gerar_interessado(Interessado *interessado, int id);
-
-void listar_interessados(Interessado *interessados, int quantidade);
 
 //recebe uma string e gera um nome
 void gerar_nome(char *nome);

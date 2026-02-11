@@ -27,9 +27,7 @@ void menu_interessados() {
         scanf(" %c", &resposta);
     } while(resposta != 's');
 }
-void cadastro_de_moradores(){
-    printf("\nCadastro de moradores");
-}
+
 void mudancas(){
     printf("\nMudanças");
 }
@@ -42,6 +40,11 @@ void mapa_do_comdominio(){
 
 void menu_principal()
 {
+    Fila fila;
+    inicializarFila(&fila);
+    Fila2 filaMudados;
+    inicializarFila2(&filaMudados);
+
     while (true) 
     {
         int op;
@@ -61,7 +64,7 @@ void menu_principal()
         scanf("%d", &op);
         if (op == 0) break;
         if (op == 1) menu_interessados();
-        if (op == 2) cadastro_de_moradores();
+        if (op == 2) cadastro_de_moradores(&fila, &filaMudados);
         if (op == 3) mudancas();
         if (op == 4) mapa_do_comdominio();
         if (op == 5) pesquisar_informacoes();
@@ -69,7 +72,6 @@ void menu_principal()
     }
 }
 
-/* 
 
 void menuMorador(){
 
@@ -83,10 +85,9 @@ void menuMorador(){
 
 }
 
-void menu_morador(){
+void cadastro_de_moradores(Fila* fila, Fila2* filaMudados){
     int opcao;
      do {
-
         menuMorador();
         scanf("%d", &opcao);
 
@@ -94,24 +95,24 @@ void menu_morador(){
 
             case 1: { //o uso de {} é por conta da declaração de variaveis dentro do case 
                 
-                Morador morador = cadMorador(&fila);
-                enfileirar(&fila, morador);
+                Morador morador = cadMorador(fila);
+                enfileirar(fila, morador);
                 break;
 
             }
             case 2:
 
-                exibirFila(&fila);
+                exibirFila(fila);
                 break;
 
             case 3: {
 
                 Morador moradorRemovido; //dentro da função, moradorrRemovido recebe por parametro o primeiro morador da fila
-                if (desenfileirar(&fila, &moradorRemovido) == 1) {
+                if (desenfileirar(fila, &moradorRemovido) == 1) {
 
                     printf("Morador removido da fila:\n");
                     printMorador(moradorRemovido);
-                    inserirMoradorMudado(&filaMudados, moradorRemovido); //inserir o morador removido na fila de moradores mudados
+                    inserirMoradorMudado(filaMudados, moradorRemovido); //inserir o morador removido na fila de moradores mudados
                 } else {
                     printf("Fila vazia! Não ha morador para remover.\n");
                 }
@@ -121,7 +122,7 @@ void menu_morador(){
             case 4:
 
                 printf("Moradores já mudados:\n");
-                exibirMoradoresMudados(&filaMudados);
+                exibirMoradoresMudados(filaMudados);
                 break;
 
             case 0:
@@ -130,10 +131,4 @@ void menu_morador(){
                 break;
         }
     } while ( opcao != 0);
-
-
-
-    return 0;
 }
-
-*/

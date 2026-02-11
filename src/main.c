@@ -11,10 +11,6 @@ int main() {
     SetConsoleOutputCP(65001); // para corrigir os acentos no Windows
     SetConsoleCP(65001); // para corrigir os acentos no Windows
     srand(time(NULL));
-    Fila fila;
-    inicializarFila(&fila);
-    Fila2 filaMudados;
-    inicializarFila2(&filaMudados);
 
     int opcao;
 

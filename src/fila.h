@@ -35,7 +35,6 @@ void exibirFila(Fila *fila); //apenas exibir a fila de moradores
 //funçao para verificar a casa dos moradores
 int verificarCasa(Fila *fila, char bloco, int casa);
 
-void menuMorador();
 void exibirMoradoresMudados(Fila2 *filaMudados); //função para exibir os moradores que já se mudaram
 int inserirMoradorMudado(Fila2 *filaMudados, Morador morador); //inserir moradores na fila de moradores mudados
 void inicializarFila2( Fila2 *filaMudados); //inicializar a fila de moradores mudados

@@ -2,9 +2,9 @@
 #define LISTA_DE_CASAS_H
 #include "tipos_de_dados.h"
 
-typedef struct {
+typedef struct No {
     Casa casa;
-    No *proxima;
+    struct No *proxima;
 } No;
 
 typedef struct {
@@ -13,7 +13,9 @@ typedef struct {
     int tamanho;
 } Lista;
 
-void mostrar_mapa(Lista *lista);
+void add_casa(Lista **No);
+
+void mostrar_mapa();
 
 
 
