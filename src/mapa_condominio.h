@@ -5,4 +5,4 @@
 
 void exibir_mapa_condominio(Lista *lista, Fila2 *filaMudados);
 
-#endif MAPA_CONDOMINIO_H
+#endif

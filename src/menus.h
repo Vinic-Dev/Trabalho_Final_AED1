@@ -2,6 +2,7 @@
 #define MENU_H
 
 #include "lista_de_casas.h"
+#include "fila.h"
 
 void menu_principal();
 
