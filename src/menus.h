@@ -1,7 +1,7 @@
 #ifndef MENU_H
 #define MENU_H
 
-#include "fila.h" // Ensure Fila and Fila2 are defined
+#include "lista_de_casas.h" // Include this to know about Lista
 
 void menu_principal();
 
@@ -10,5 +10,7 @@ void menu_morador();
 void cadastro_de_moradores(Fila* fila, Fila2* filaMudados);
 
 void menu_interessados();
+
+void mapa_do_comdominio(Lista *lista, Fila2 *filaMudados);
 
 #endif

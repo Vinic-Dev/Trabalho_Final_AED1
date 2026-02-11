@@ -70,6 +70,22 @@ int gerar_idade(){
     return r;
 }
 
+void gerar_casa_aleatoria(Casa *casa) {
+    char blocos[] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L'};
+    int indice_bloco = rand() % 12; // 0 a 11
+    casa->bloco = blocos[indice_bloco];
+    casa->numero = (rand() % 6) + 1; // 1 a 6
+    casa->esta_ocupada = false;
+}
+
+void gerar_morador(Morador *morador) {
+    gerar_nome(morador->nome);
+    morador->idade = gerar_idade();
+    gerar_casa_aleatoria(&morador->casa);
+    morador->casa.esta_ocupada = true; 
+    morador->fez_mudanca = false;
+}
+
 void gerar_interessado(Interessado *interessado, int id){
     char nome[50];
     gerar_nome(nome);
@@ -77,4 +93,5 @@ void gerar_interessado(Interessado *interessado, int id){
     strcpy(interessado->nome, nome); 
     interessado->idade = gerar_idade();
     interessado->renda = gerar_renda();
+    gerar_casa_aleatoria(&interessado->casa_interessada);
 }

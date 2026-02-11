@@ -1,6 +1,6 @@
 #ifndef LISTA_DE_CASAS_H
 #define LISTA_DE_CASAS_H
-#include "tipos_de_dados.h"
+#include "fila.h"
 
 typedef struct No {
     Casa casa;
@@ -13,12 +13,8 @@ typedef struct {
     int tamanho;
 } Lista;
 
-void add_casa(Lista **No);
-
-void mostrar_mapa();
-
-
-
+void inicializar_lista_casas(Lista *lista);
+void exibir_mapa_condominio(Lista *lista, Fila2 *filaMudados);
 
 
 #endif

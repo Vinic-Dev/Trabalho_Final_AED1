@@ -34,8 +34,8 @@ void mudancas(){
 void pesquisar_informacoes(){
     printf("\nPesquisar");
 }
-void mapa_do_comdominio(){
-    printf("\nMapa do Condominio");
+void mapa_do_comdominio(Lista *lista, Fila2 *filaMudados){
+    exibir_mapa_condominio(lista, filaMudados);
 }
 
 void menu_principal()
@@ -44,6 +44,9 @@ void menu_principal()
     inicializarFila(&fila);
     Fila2 filaMudados;
     inicializarFila2(&filaMudados);
+
+    Lista listaCasas;
+    inicializar_lista_casas(&listaCasas);
 
     while (true) 
     {
@@ -66,7 +69,7 @@ void menu_principal()
         if (op == 1) menu_interessados();
         if (op == 2) cadastro_de_moradores(&fila, &filaMudados);
         if (op == 3) mudancas();
-        if (op == 4) mapa_do_comdominio();
+        if (op == 4) mapa_do_comdominio(&listaCasas, &filaMudados);
         if (op == 5) pesquisar_informacoes();
         
     }
