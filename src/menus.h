@@ -1,7 +1,7 @@
 #ifndef MENU_H
 #define MENU_H
 
-#include "lista_de_casas.h" // Include this to know about Lista
+#include "lista_de_casas.h"
 
 void menu_principal();
 

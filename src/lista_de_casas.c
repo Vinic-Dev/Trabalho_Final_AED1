@@ -58,7 +58,4 @@ bool verificar_ocupacao(Lista *lista, Fila2 *filaMudados, char bloco, int numero
     return false;
 }
 
-void exibir_mapa_condominio(Lista *lista, Fila2 *filaMudados) {
-    Casa mapa_casas[12][6];
-    char blocos[] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L'};
-}
+
