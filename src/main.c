@@ -2,11 +2,14 @@
 #include <time.h>
 #include <stdlib.h>
 #include "menus.h"
-#include "morador.h"
-#include "dados.h"
+#include "fila.h"
+#include "gerador_dados.h"
+#include <windows.h>
 
 
-int main() {   
+int main() {
+    SetConsoleOutputCP(65001); // para corrigir os acentos no Windows
+    SetConsoleCP(65001); // para corrigir os acentos no Windows
     srand(time(NULL));
     Fila fila;
     inicializarFila(&fila);
