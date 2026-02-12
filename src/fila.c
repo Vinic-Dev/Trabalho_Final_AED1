@@ -25,19 +25,13 @@ Morador cadMorador(Fila *fila, Fila2 *filaMudados) {
 
    do{
             do {
-
-                printf("Digite o bloco do morador: ");
+                printf("Digite o bloco do morador (A-E): ");
                 scanf(" %c", &morador.casa.bloco);
 
-                if (morador.casa.bloco != 'A' && morador.casa.bloco != 'B' &&
-                morador.casa.bloco != 'C' && morador.casa.bloco != 'D' &&
-                morador.casa.bloco != 'E') {
-                printf("Bloco inexistente. Tente novamente.\n");
+                if (morador.casa.bloco < 'A' || morador.casa.bloco > 'L') {
+                    printf("Bloco inexistente. Tente novamente.\n");
                 }
-
-            }while ( morador.casa.bloco != 'A' && morador.casa.bloco != 'B' &&
-            morador.casa.bloco != 'C' && morador.casa.bloco != 'D' &&
-            morador.casa.bloco != 'E');
+            } while (morador.casa.bloco < 'A' || morador.casa.bloco > 'L');
 
             do {
 
