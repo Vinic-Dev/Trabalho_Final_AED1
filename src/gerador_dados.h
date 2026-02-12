@@ -11,7 +11,7 @@ void gerar_nome(char *nome);
 //retorna um double de renda
 double gerar_renda();
 
-// retorna uma idade entre 18 e 99 anos
+// retorna uma idade entre 18 e 70 anos
 int gerar_idade();
 
 // recebe um tipo Morador e o gera

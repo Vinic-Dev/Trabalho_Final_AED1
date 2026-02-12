@@ -65,7 +65,7 @@ double gerar_renda(){
 }
 
 int gerar_idade(){
-    int r = rand() % 100;
+    int r = rand() % 70;
     if(r < 18) r = 18;
     return r;
 }

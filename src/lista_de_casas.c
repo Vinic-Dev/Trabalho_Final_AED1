@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include "lista_de_casas.h"
 
 void inicializar_lista_casas(Lista *lista) {
@@ -13,7 +12,12 @@ void inicializar_lista_casas(Lista *lista) {
 
     for (int b = 0; b < 12; b++) {
         for (int n = 1; n <= num_casas; n++) {
-            No *novo = (No*)malloc(sizeof(No));
+            No *novo = malloc(sizeof(No));
+
+            if (novo == NULL) {
+                printf("erro de alocação");
+                return;
+            }
             novo->casa.bloco = blocos[b];
             novo->casa.numero = n;
             novo->casa.esta_ocupada = false;
