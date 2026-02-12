@@ -14,7 +14,7 @@ void inicializarFila2( Fila2 *filaMudados){
     filaMudados->qntd = 0;
 }
 
-Morador cadMorador(Fila *fila) {
+Morador cadMorador(Fila *fila, Fila2 *filaMudados) {
 
    Morador morador;
    printf("Digite o nome do morador: ");
@@ -48,13 +48,13 @@ Morador cadMorador(Fila *fila) {
                 printf("Casa inexistente. Tente novamente.\n");
                 }
 
-                if ( verificarCasa(fila, morador.casa.bloco, morador.casa.numero) == 1) {
+                if ( verificarCasa(fila, filaMudados, morador.casa.bloco, morador.casa.numero) == 1) {
                 printf("Casa ja ocupada nesse bloco! Tente novamente.\n");
                 }
         
             } while (morador.casa.numero >5 || morador.casa.numero < 1);
 
-    } while (verificarCasa(fila, morador.casa.bloco, morador.casa.numero) == 1 
+    } while (verificarCasa(fila, filaMudados, morador.casa.bloco, morador.casa.numero) == 1 
     || morador.casa.numero > 5 || morador.casa.numero < 1);
 
    return morador;
@@ -89,7 +89,7 @@ int enfileirar(Fila *fila, Morador morador){
 
 
 //parecido com exibir a fila
-int verificarCasa(Fila *fila, char bloco, int casa){
+int verificarCasa(Fila *fila, Fila2 *filaMudados, char bloco, int casa){
 
     Node *atual = fila->inicio;
 
@@ -99,6 +99,17 @@ int verificarCasa(Fila *fila, char bloco, int casa){
         return 1;// casa e bloco ja ocupados
 
         atual= atual->prox;
+    }
+
+    if (filaMudados != NULL) {
+        Node *atualMudado = filaMudados->inicio;
+        while (atualMudado != NULL) {
+            if (atualMudado->morador.casa.bloco == bloco &&
+                atualMudado->morador.casa.numero == casa) {
+                return 1; // casa e bloco ja ocupados por alguém que já mudou
+            }
+            atualMudado = atualMudado->prox;
+        }
     }
     
     return 0;// caso nao esteja ocupado

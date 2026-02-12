@@ -22,7 +22,7 @@ typedef struct {
 
 //Funções voltadas ao morador
 
-Morador cadMorador(Fila *fila); //verificar o que precisa ser passado
+Morador cadMorador(Fila *fila, Fila2 *filaMudados); //verificar o que precisa ser passado
 void printMorador(Morador morador); //para mostrar a fila
 
 //funçoes essenciais de fila
@@ -33,7 +33,7 @@ int desenfileirar(Fila *fila, Morador *morador); //morador por parametroooo
 void exibirFila(Fila *fila); //apenas exibir a fila de moradores
 
 //funçao para verificar a casa dos moradores
-int verificarCasa(Fila *fila, char bloco, int casa);
+int verificarCasa(Fila *fila, Fila2 *filaMudados, char bloco, int casa);
 
 void exibirMoradoresMudados(Fila2 *filaMudados); //função para exibir os moradores que já se mudaram
 int inserirMoradorMudado(Fila2 *filaMudados, Morador morador); //inserir moradores na fila de moradores mudados

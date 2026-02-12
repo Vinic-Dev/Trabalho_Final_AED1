@@ -13,8 +13,8 @@ typedef struct {
     int tamanho;
 } Lista;
 
-void inicializar_lista_casas(Lista *lista);
-//void exibir_mapa_condominio(Lista *lista, Fila2 *filaMudados);
+void inicializar_lista_casas(Lista *lista, Fila2 *fila_mudados);
+void atualizar_situacao_casas(Lista *lista, Fila2 *filaMudados);
 
 
 #endif

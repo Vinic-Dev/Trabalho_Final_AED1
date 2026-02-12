@@ -3,6 +3,8 @@
 #define true 1
 #include "fila.h"
 #include "gerador_dados.h"
+#include "lista_de_casas.h"
+#include "mapa_condominio.h"
 #define INTERESSADOS 10
 
  
@@ -35,7 +37,8 @@ void pesquisar_informacoes(){
     printf("\nPesquisar");
 }
 void mapa_do_comdominio(Lista *lista, Fila2 *filaMudados){
-    //exibir_mapa_condominio(lista, filaMudados);
+    atualizar_situacao_casas(lista, filaMudados);
+    exibir_mapa_condominio(lista);
 }
 
 void menu_principal()
@@ -46,7 +49,7 @@ void menu_principal()
     inicializarFila2(&filaMudados);
 
     Lista listaCasas;
-    inicializar_lista_casas(&listaCasas);
+    inicializar_lista_casas(&listaCasas, &filaMudados);
 
     while (true) 
     {
@@ -98,7 +101,7 @@ void cadastro_de_moradores(Fila* fila, Fila2* filaMudados){
 
             case 1: { //o uso de {} é por conta da declaração de variaveis dentro do case 
                 
-                Morador morador = cadMorador(fila);
+                Morador morador = cadMorador(fila, filaMudados);
                 enfileirar(fila, morador);
                 break;
 

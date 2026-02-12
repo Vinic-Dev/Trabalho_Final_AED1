@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "lista_de_casas.h"
 
-void inicializar_lista_casas(Lista *lista) {
+void inicializar_lista_casas(Lista *lista, Fila2 *fila_mudados) {
     lista->inicio = NULL;
     lista->fim = NULL;
     lista->tamanho = 0;
@@ -61,5 +61,21 @@ bool verificar_ocupacao(Lista *lista, Fila2 *filaMudados, char bloco, int numero
     }
     return false;
 }
+void atualizar_situacao_casas(Lista *lista, Fila2 *filaMudados) {
+    if (lista == NULL || filaMudados == NULL) return;
 
-
+    No *atualCasa = lista->inicio;
+    Node *atualMorador = filaMudados->inicio;
+    while (atualMorador != NULL) {
+        atualCasa = lista->inicio; 
+        while (atualCasa != NULL) {
+            if (atualCasa->casa.bloco == atualMorador->morador.casa.bloco &&
+                atualCasa->casa.numero == atualMorador->morador.casa.numero) {
+                atualCasa->casa.esta_ocupada = true;
+                break;
+            }
+            atualCasa = atualCasa->proxima;
+        }
+        atualMorador = atualMorador->prox;
+    }
+}
