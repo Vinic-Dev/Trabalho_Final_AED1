@@ -14,7 +14,7 @@ typedef struct {
 } Lista;
 
 void inicializar_lista_casas(Lista *lista);
-void exibir_mapa_condominio(Lista *lista, Fila2 *filaMudados);
+//void exibir_mapa_condominio(Lista *lista, Fila2 *filaMudados);
 
 
 #endif
