@@ -39,7 +39,7 @@ void exibir_mapa_condominio(Lista *lista) {
     int mapa[72]; // Matriz baseada
 
     for(int k=0; k<72; k++) {
-        atrib_b(mapa, k, 0, 0, 71, 0); 
+        atrib(mapa, k, 0, 0, 71, 0);
     }
 
     // Preenche mapa a partir da lista
