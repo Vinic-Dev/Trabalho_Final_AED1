@@ -35,7 +35,7 @@ void pesquisar_informacoes(){
     printf("\nPesquisar");
 }
 void mapa_do_comdominio(Lista *lista, Fila2 *filaMudados){
-    exibir_mapa_condominio(lista, filaMudados);
+    //exibir_mapa_condominio(lista, filaMudados);
 }
 
 void menu_principal()
