@@ -30,9 +30,6 @@ void menu_interessados() {
     } while(resposta != 's');
 }
 
-void mudancas(){
-    printf("\nMudanças");
-}
 void pesquisar_informacoes(){
     printf("\nPesquisar");
 }
@@ -50,6 +47,7 @@ void menu_principal()
 
     Lista listaCasas;
     inicializar_lista_casas(&listaCasas, &filaMudados);
+    simular_ocupacao(&filaMudados, &listaCasas, 10);
 
     while (true) 
     {
@@ -71,7 +69,7 @@ void menu_principal()
         if (op == 0) break;
         if (op == 1) menu_interessados();
         if (op == 2) cadastro_de_moradores(&fila, &filaMudados);
-        if (op == 3) mudancas();
+        if (op == 3) mudancas(&fila, &filaMudados);
         if (op == 4) mapa_do_comdominio(&listaCasas, &filaMudados);
         if (op == 5) pesquisar_informacoes();
         
@@ -82,36 +80,32 @@ void menu_principal()
 void menuMorador(){
 
     printf("\n----------MENU----------\n\n");
-    printf("1-Cadastrar Morador\n");
-    printf("2- Mostrar fila da mudanca\n");
-    printf("3-Processar proxima mudanca\n");
-    printf("4-Exibir moradores ja mudados\n");
+    printf("1- Mostrar fila da mudanca\n");
+    printf("2-Processar proxima mudanca\n");
+    printf("3-Exibir moradores ja mudados\n");
     printf("0-Sair\n\n");
     printf("Qual opcao deseja escolher?\n");
 
 }
 
-void cadastro_de_moradores(Fila* fila, Fila2* filaMudados){
+void cadastro_de_moradores(Fila* fila, Fila2* filaMudados) {
+    Morador morador = cadMorador(fila, filaMudados);
+    enfileirar(fila, morador);
+}
+
+void mudancas(Fila* fila, Fila2* filaMudados){
     int opcao;
      do {
         menuMorador();
         scanf("%d", &opcao);
 
         switch(opcao){
-
-            case 1: { //o uso de {} é por conta da declaração de variaveis dentro do case 
-                
-                Morador morador = cadMorador(fila, filaMudados);
-                enfileirar(fila, morador);
-                break;
-
-            }
-            case 2:
+            case 1:
 
                 exibirFila(fila);
                 break;
 
-            case 3: {
+            case 2: {
 
                 Morador moradorRemovido; //dentro da função, moradorrRemovido recebe por parametro o primeiro morador da fila
                 if (desenfileirar(fila, &moradorRemovido) == 1) {
@@ -125,7 +119,7 @@ void cadastro_de_moradores(Fila* fila, Fila2* filaMudados){
                 break;
                 
             }
-            case 4:
+            case 3:
 
                 printf("Moradores já mudados:\n");
                 exibirMoradoresMudados(filaMudados);

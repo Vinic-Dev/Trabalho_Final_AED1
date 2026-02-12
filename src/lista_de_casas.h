@@ -15,6 +15,7 @@ typedef struct {
 
 void inicializar_lista_casas(Lista *lista, Fila2 *fila_mudados);
 void atualizar_situacao_casas(Lista *lista, Fila2 *filaMudados);
+bool verificar_ocupacao(Lista *lista, Fila2 *filaMudados, char bloco, int numero);
 
 
 #endif

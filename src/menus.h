@@ -8,6 +8,8 @@ void menu_principal();
 
 void menu_morador();
 
+void mudancas(Fila* fila, Fila2* filaMudados);
+
 void cadastro_de_moradores(Fila* fila, Fila2* filaMudados);
 
 void menu_interessados();

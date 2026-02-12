@@ -1,6 +1,11 @@
 #ifndef DADOS_H
 #define DADOS_H
 #include "tipos_de_dados.h"
+#include "lista_de_casas.h"
+#include "fila.h"
+
+// gera dados aleatorios para preencher a lista de casas e fila de mudados
+void simular_ocupacao(Fila2 *filaMudados, Lista *lista, int quantidade);
 
 // recebe um tipo Interessado e o gera
 void gerar_interessado(Interessado *interessado, int id);

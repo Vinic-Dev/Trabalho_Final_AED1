@@ -95,3 +95,33 @@ void gerar_interessado(Interessado *interessado, int id){
     interessado->renda = gerar_renda();
     gerar_casa_aleatoria(&interessado->casa_interessada);
 }
+
+void simular_ocupacao(Fila2 *filaMudados, Lista *lista, int quantidade) {
+    if (filaMudados == NULL || lista == NULL) {
+        printf("Erro: Ponteiros invalidos em simular_ocupacao.\n");
+        return;
+    }
+
+    int gerados = 0;
+    int tentativas = 0;
+    int max_tentativas = quantidade * 10; // Evitar loop infinito
+
+    while (gerados < quantidade && tentativas < max_tentativas) {
+        Morador morador;
+        gerar_morador(&morador);
+
+        if (!verificar_ocupacao(lista, filaMudados, morador.casa.bloco, morador.casa.numero)) {
+            if (inserirMoradorMudado(filaMudados, morador)) {
+                gerados++;
+            }
+        }
+        tentativas++;
+    }
+
+    if (gerados < quantidade) {
+        printf("Aviso: Apenas %d moradores gerados de %d solicitados (muitas colisoes).\n", gerados, quantidade);
+    } else {
+        printf("Sucesso: %d moradores gerados e inseridos na fila de mudados.\n", gerados);
+    }
+    atualizar_situacao_casas(lista, filaMudados);
+}
