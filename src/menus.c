@@ -8,15 +8,16 @@
 #define INTERESSADOS 10
 
  
-void menu_interessados() {
+void menu_interessados(Lista *lista) {
     
     Interessado interessados[INTERESSADOS];
 
     for(int i = 0; i < INTERESSADOS; i++){
-        gerar_interessado(&interessados[i], i+1);
+        gerar_interessado(&interessados[i], i+1, lista);
     }
     for(int i = 0; i< INTERESSADOS; i++){
         printf("\nID: %d", interessados[i].id);
+        printf("\nCasa de Interesse: Bloco:%c Número:%d", interessados[i].casa_interessada.bloco, interessados[i].casa_interessada.numero);
         printf("\nNome: %s", interessados[i].nome);
         printf("\nIdade: %d", interessados[i].idade);
         printf("\nRenda: R$%.2lf", interessados[i].renda);
@@ -67,7 +68,7 @@ void menu_principal()
         
         scanf("%d", &op);
         if (op == 0) break;
-        if (op == 1) menu_interessados();
+        if (op == 1) menu_interessados(&listaCasas);
         if (op == 2) cadastro_de_moradores(&fila, &filaMudados);
         if (op == 3) mudancas(&fila, &filaMudados);
         if (op == 4) mapa_do_comdominio(&listaCasas, &filaMudados);

@@ -12,7 +12,7 @@ void mudancas(Fila* fila, Fila2* filaMudados);
 
 void cadastro_de_moradores(Fila* fila, Fila2* filaMudados);
 
-void menu_interessados();
+void menu_interessados(Lista *lista);
 
 void mapa_do_comdominio(Lista *lista, Fila2 *filaMudados);
 

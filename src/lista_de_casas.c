@@ -51,6 +51,8 @@ bool verificar_ocupacao(Lista *lista, Fila2 *filaMudados, char bloco, int numero
 
     if (ocupada) return true;
 
+    if (filaMudados == NULL) return false;
+
     Node *atualMorador = filaMudados->inicio;
     while (atualMorador != NULL) {
         if (atualMorador->morador.casa.bloco == bloco &&

@@ -8,7 +8,7 @@
 void simular_ocupacao(Fila2 *filaMudados, Lista *lista, int quantidade);
 
 // recebe um tipo Interessado e o gera
-void gerar_interessado(Interessado *interessado, int id);
+void gerar_interessado(Interessado *interessado, int id, Lista *lista);
 
 //recebe uma string e gera um nome
 void gerar_nome(char *nome);

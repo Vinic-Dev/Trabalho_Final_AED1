@@ -86,14 +86,17 @@ void gerar_morador(Morador *morador) {
     morador->fez_mudanca = false;
 }
 
-void gerar_interessado(Interessado *interessado, int id){
+void gerar_interessado(Interessado *interessado, int id, Lista *lista){
     char nome[50];
     gerar_nome(nome);
     interessado->id = id;
     strcpy(interessado->nome, nome); 
     interessado->idade = gerar_idade();
     interessado->renda = gerar_renda();
-    gerar_casa_aleatoria(&interessado->casa_interessada);
+    
+    do {
+        gerar_casa_aleatoria(&interessado->casa_interessada);
+    } while (verificar_ocupacao(lista, NULL, interessado->casa_interessada.bloco, interessado->casa_interessada.numero));
 }
 
 void simular_ocupacao(Fila2 *filaMudados, Lista *lista, int quantidade) {
