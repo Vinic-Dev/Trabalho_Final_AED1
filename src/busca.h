@@ -4,12 +4,12 @@
 #include "busca.h"
 #include "ordenacao.h"
 #include "fila.h"
-//#include "dados.h"
 
-void procurarporIdade(Fila fila);
-void procurarporNome(Fila fila);
+
+void procurarporIdade(Fila2 fila);
+void procurarporNome(Fila2 fila);
 int buscaBinaria(Morador m[], int n, char bloco, int apartamento);
-void procurarPorBlocoEApartamento(Fila fila);
+void procurarPorBlocoEApartamento(Fila2 fila);
 
 
 #endif

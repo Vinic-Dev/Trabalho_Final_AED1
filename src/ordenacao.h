@@ -5,7 +5,7 @@
 #include "ordenacao.h"
 #include "fila.h"
 
-int filaParaVetor(Fila fila, Morador vetor[]);
+int filaParaVetor(Fila2 fila, Morador vetor[]);
 void insertionSort(Morador mor[], int n);
 
 #endif

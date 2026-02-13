@@ -3,10 +3,9 @@
 #include "busca.h"
 #include "ordenacao.h"
 #include "fila.h"
-//#include "dados.h"
 
-//para fazer a busca binaria, eu to copiando a fila pra um vetor, nao sei se é o ideal
-int filaParaVetor(Fila fila, Morador vetor[]) {
+
+int filaParaVetor(Fila2 fila, Morador vetor[]) {
     Node *aux = fila.inicio;
     int i = 0;
     //copia os moradores pra um vetor
@@ -18,7 +17,6 @@ int filaParaVetor(Fila fila, Morador vetor[]) {
     //retorna a quantidade moradores
     return i;
 }
-
 //organizar o vetor de morador em ordem bloco-apartamento
 void insertionSort(Morador mor[], int n) {
     for (int i = 1; i < n; i++) {
