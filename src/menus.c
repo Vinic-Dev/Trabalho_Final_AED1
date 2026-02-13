@@ -1,5 +1,7 @@
 #include "menus.h"
 #include <stdio.h>
+#include "busca.h"
+#include "ordenacao.h"
 #define true 1
 #include "fila.h"
 #include "gerador_dados.h"
@@ -31,9 +33,45 @@ void menu_interessados() {
 void mudancas(){
     printf("\nMudanças");
 }
-void pesquisar_informacoes(){
-    printf("\nPesquisar");
+
+
+void pesquisar_informacoes(Fila *fila, Fila2 *filaMudados, Lista *listaCasas){
+
+    int opcao;
+
+    do {
+        printf("\n--------- PESQUISAR MORADORES JA MUDADOS ---------\n");
+        printf("1 - Buscar por idade\n");
+        printf("2 - Buscar por nome\n");
+        printf("3 - Buscar por bloco e apartamento\n");
+        printf("0 - Voltar\n");
+        printf("Escolha: ");
+        scanf("%d", &opcao);
+
+        switch(opcao) {
+            case 1:
+                procurarporIdade(*filaMudados);
+                break;
+
+            case 2:
+                procurarporNome(*filaMudados);
+                break;
+
+            case 3:
+                procurarPorBlocoEApartamento(*filaMudados);
+                break;
+
+            case 0:
+                return;
+
+            default:
+                printf("Opcao invalida!\n");
+        }
+
+    } while(1);
 }
+
+
 void mapa_do_comdominio(Lista *lista, Fila2 *filaMudados){
     exibir_mapa_condominio(lista, filaMudados);
 }
@@ -70,7 +108,8 @@ void menu_principal()
         if (op == 2) cadastro_de_moradores(&fila, &filaMudados);
         if (op == 3) mudancas();
         if (op == 4) mapa_do_comdominio(&listaCasas, &filaMudados);
-        if (op == 5) pesquisar_informacoes();
+        if (op == 5) pesquisar_informacoes(&fila, &filaMudados, &listaCasas);
+
         
     }
 }

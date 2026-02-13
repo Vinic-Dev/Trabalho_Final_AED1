@@ -2,13 +2,10 @@
 #include <string.h>
 #include "busca.h"
 #include "ordenacao.h"
-#include "fila.h"
-#include "lista_de_casas.h"
 #include "tipos_de_dados.h"
-//#include "dados.h"
 
 
-void procurarporIdade(Fila fila){//fazer um int pra retornar sucesso ou n sucesso?
+void procurarporIdade(Fila2 fila){
     int idade; 
     Node *aux = fila.inicio;
     printf("Digite a idade procurada:\n");
@@ -29,7 +26,7 @@ void procurarporIdade(Fila fila){//fazer um int pra retornar sucesso ou n sucess
     }
 }
 
-void procurarporNome(Fila fila){//mudar pra int
+void procurarporNome(Fila2 fila){
     char name[50];
     Node *aux = fila.inicio;
     printf("Digite o nome que deseja procurar:\n");
@@ -68,7 +65,7 @@ int buscaBinaria(Morador m[], int n, char bloco, int apartamento) {
     return -1;
 }
 
-void procurarPorBlocoEApartamento(Fila fila) {
+void procurarPorBlocoEApartamento(Fila2 fila) {
     Morador vetor[100];
 
     int n = filaParaVetor(fila, vetor);
